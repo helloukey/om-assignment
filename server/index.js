@@ -1,5 +1,5 @@
-const apiKey = "md-ndF3Gs1phPl4XRrsq78NaA";
-const mailchimpClient = require("@mailchimp/mailchimp_transactional")(apiKey);
+require("dotenv").config();
+const mailchimpClient = require("@mailchimp/mailchimp_transactional")(process.env.API_KEY);
 const express = require("express");
 const cors = require("cors");
 
@@ -10,8 +10,9 @@ app.use(express.json());
 app.use(cors());
 
 // Initiate server
+const PORT = process.env.PORT || 5001
 app.listen(5000, () => {
-  console.log("Connected to PORT: 5000");
+  console.log(`Connected to PORT: ${PORT}`);
 });
 
 // routes
