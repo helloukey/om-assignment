@@ -18,7 +18,7 @@ type Props = {
   isLoading: boolean;
   searchQuery: string;
 };
-const Results = ({ data, error, isLoading, searchQuery }: Props) => {
+const Results = ({ data, searchQuery }: Props) => {
   const [isHidden, setIsHidden] = useState<boolean>(true);
 
   const handleHidden = () => {

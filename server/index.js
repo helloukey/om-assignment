@@ -1,11 +1,13 @@
 const apiKey = "md-ndF3Gs1phPl4XRrsq78NaA";
 const mailchimpClient = require("@mailchimp/mailchimp_transactional")(apiKey);
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 // Initiate server
 app.listen(5000, () => {

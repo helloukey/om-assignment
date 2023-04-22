@@ -49,35 +49,40 @@ const Mentors = (props: Props) => {
       {isLoading ? <Loader /> : null}
       {/* Error */}
       {error && error.length ? <Error /> : null}
-      <Results
-        data={
-          data
-            ? data
-                .filter(
-                  (d) =>
-                    d.name.includes(searchQuery) ||
-                    d.skills.includes(searchQuery) ||
-                    d.provides.includes(searchQuery) ||
-                    d.designation.includes(searchQuery)
-                )
-                .slice(currentPage * 5, (currentPage + 1) * 5)
-            : data
-        }
-        error={error}
-        isLoading={isLoading}
-        searchQuery={searchQuery}
-      />
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        data={data!.filter(
-          (d) =>
-            d.name.includes(searchQuery) ||
-            d.skills.includes(searchQuery) ||
-            d.provides.includes(searchQuery) ||
-            d.designation.includes(searchQuery)
-        )}
-      />
+      {/* Results */}
+      {data ? (
+        <Results
+          data={
+            data
+              ? data
+                  .filter(
+                    (d) =>
+                      d.name.includes(searchQuery) ||
+                      d.skills.includes(searchQuery) ||
+                      d.provides.includes(searchQuery) ||
+                      d.designation.includes(searchQuery)
+                  )
+                  .slice(currentPage * 5, (currentPage + 1) * 5)
+              : data
+          }
+          error={error}
+          isLoading={isLoading}
+          searchQuery={searchQuery}
+        />
+      ) : null}
+      {data ? (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          data={data!.filter(
+            (d) =>
+              d.name.includes(searchQuery) ||
+              d.skills.includes(searchQuery) ||
+              d.provides.includes(searchQuery) ||
+              d.designation.includes(searchQuery)
+          )}
+        />
+      ) : null}
     </div>
   );
 };
