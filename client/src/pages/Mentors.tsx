@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Results from "../components/Results";
 import Search from "../components/Search";
 import Pagination from "../components/Pagination";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 type Props = {};
 export type Data = {
@@ -43,6 +45,10 @@ const Mentors = (props: Props) => {
   return (
     <div className="pt-[10%]">
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      {/* Loader */}
+      {isLoading ? <Loader /> : null}
+      {/* Error */}
+      {error && error.length ? <Error /> : null}
       <Results
         data={
           data
