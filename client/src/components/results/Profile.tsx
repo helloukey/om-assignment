@@ -13,7 +13,7 @@ const Profile = (props: Props) => {
     setError(null);
     setIsLoading(true);
 
-    fetch("http://localhost:5000/send", {
+    fetch("https://om-assignment-production.up.railway.app/send", {
       method: "POST",
     })
       .then((res) => res.json())
