@@ -11,7 +11,7 @@ app.use(cors());
 
 // Initiate server
 const PORT = process.env.PORT || 5001
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log(`Connected to PORT: ${PORT}`);
 });
 
